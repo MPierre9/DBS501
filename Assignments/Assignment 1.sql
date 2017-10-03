@@ -46,17 +46,14 @@ BEGIN
          UPDATE LOCATIONS SET STATE_PROVINCE = v_stateString WHERE LOCATION_ID = v_locationId;
          DBMS_OUTPUT.PUT_LINE('City ' || v_city || ' has modified its province to ' || v_stateString);     
     END CASE;
-       
-
-    --SELECT * INTO v_locationRec FROM LOCATIONS WHERE LOCATION_ID = v_locationId
-ROLLBACK; 
+    ROLLBACK; 
+    
 EXCEPTION
  WHEN no_data_found THEN
  DBMS_OUTPUT.PUT_LINE('This country has NO cities listed.');
  WHEN too_many_rows THEN 
  DBMS_OUTPUT.PUT_LINE('This country has MORE THAN ONE City without province listed.'); 
 END;
-   --rollback;
    --select * from countries where country_id = RS;
    --select * from regions;
    --select * from locations;

@@ -1,0 +1,4 @@
+SET SERVEROUTPUT ON
+SET VERIFY OFF
+ACCEPT tmp_student_id NUMBER PROMPT 'Please enter a Student ID: ';
+SELECT TOTAL_COST('&tmp_student_id') AS COST FROM DUAL;
